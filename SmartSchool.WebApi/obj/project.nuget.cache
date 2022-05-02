@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "StqJMKplP0jQGrdyBflbyKg5POJwsR1b93Bu/kvOQQMY4yFshwO0yKmDPz/2BtArAnLIGtaXnry9xJQQGt5mnA==",
+  "success": true,
+  "projectFilePath": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\acsil\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.24\\microsoft.netcore.app.host.win-x64.3.1.24.nupkg.sha512"
+  ],
+  "logs": []
+}
