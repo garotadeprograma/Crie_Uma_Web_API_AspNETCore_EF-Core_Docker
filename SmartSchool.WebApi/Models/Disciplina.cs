@@ -15,7 +15,7 @@ namespace SmartSchool.WebApi.Models
 
         public string Nome { get; set; }
 
-        public string ProfessorId { get; set; }
+        public int ProfessorId { get; set; }
 
         public Professor Professor { get; set; }
 
