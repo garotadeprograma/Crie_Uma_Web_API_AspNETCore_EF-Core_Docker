@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj": {}
+    "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\Crie_Uma_Web_API_AspNETCore_EF-Core_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj": {
+    "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\Crie_Uma_Web_API_AspNETCore_EF-Core_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj",
+        "projectUniqueName": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\Crie_Uma_Web_API_AspNETCore_EF-Core_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj",
         "projectName": "SmartSchool.WebApi",
-        "projectPath": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj",
+        "projectPath": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\Crie_Uma_Web_API_AspNETCore_EF-Core_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj",
         "packagesPath": "C:\\Users\\acsil\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\SmartSchool.WebApi\\obj\\",
+        "outputPath": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\Crie_Uma_Web_API_AspNETCore_EF-Core_Docker\\SmartSchool.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -60,6 +60,8 @@
               "version": "[3.1.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.10, )"
             }

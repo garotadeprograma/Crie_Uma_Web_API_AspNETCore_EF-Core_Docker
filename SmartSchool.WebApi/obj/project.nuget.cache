@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j+xJphFIU+uyrEft2q3y7PjDSXeqTe4K+RgoKLS1rncs53cpYzS5vCANVaUb0xNhNsjLu9tjA3cdqVaFUlAnbA==",
+  "dgSpecHash": "zq+6KAnbeLvcfBcjL6bBxJksxSC/FxgogMkaS8VVOYxXRO7Gj8dQJ6/SwEP45LNVxyFrCLFw6loOPmeocYbYcQ==",
   "success": true,
-  "projectFilePath": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj",
+  "projectFilePath": "C:\\Projetos_Estudos\\UDEMY\\Crie_Uma_Web_API_Com_AspNET_Core_EFCore_Docker\\Crie_Uma_Web_API_AspNETCore_EF-Core_Docker\\SmartSchool.WebApi\\SmartSchool.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\acsil\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\acsil\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

@@ -8,9 +8,10 @@ namespace SmartSchool.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AlunoController : Controller
+    public class AlunoController : ControllerBase
     {
-        public AlunoController()
+
+GCNotificationStatus         public AlunoController()
         {
             
         }
