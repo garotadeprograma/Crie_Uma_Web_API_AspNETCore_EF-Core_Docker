@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SmartSchool.WebApi.Data;
 
 namespace SmartSchool.WebApi.Controllers
 {
@@ -11,14 +12,16 @@ namespace SmartSchool.WebApi.Controllers
     public class AlunoController : ControllerBase
     {
 
-GCNotificationStatus         public AlunoController()
+        private readonly SmartContext _smartContext;
+        public AlunoController(SmartContext smartContext)
         {
-            
+            _smartContext = smartContext;
         }
 
+        [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Alunos: Rafa, Paula, Mateus");
+            return Ok(_smartContext.Alunos);
         }
     }
 }
