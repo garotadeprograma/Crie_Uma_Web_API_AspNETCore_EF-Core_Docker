@@ -46,6 +46,30 @@ namespace SmartSchool.WebApi.Controllers
         [HttpPost]
         public IActionResult Post(Aluno aluno)
         {
+            var alunoExist = _smartContext.Alunos.FirstOrDefault(a => a.Id == aluno.Id);
+
+            if(alunoExist == null) 
+            {
+                _smartContext.Add(aluno);
+            }
+            else
+            {
+                alunoExist.Telefone = aluno.Telefone;
+                _smartContext.Update(alunoExist);
+            }
+
+            _smartContext.SaveChanges();
+            return Ok(_smartContext.Alunos);
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(Aluno aluno)
+        {
+            var alunoExist = _smartContext.Alunos.FirstOrDefault(a => a.Id == aluno.Id);
+            if(alunoExist == null) return BadRequest("Aluno não encontrado");
+
+            _smartContext.Remove(alunoExist);
+            _smartContext.SaveChanges();
             return Ok(_smartContext.Alunos);
         }
     }
