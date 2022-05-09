@@ -27,7 +27,23 @@ namespace SmartSchool.WebApi.Controllers
             return Ok(_smartContext.Professores);
         }
 
-        
+         [HttpGet("byId/{id}")]
+        public IActionResult GetById(int Id)
+        {
+            var _professor = _smartContext.Professores.FirstOrDefault(p => p.Id == Id);
+            if (_professor == null) return BadRequest("Id não corresponde ao de nenhum aluno!");
+            
+            return Ok(_professor);
+        }
+
+        [HttpGet("ByName")]
+        public IActionResult GetByName(string nome)
+        {
+            var _professores = _smartContext.Professores.Where(p => p.Nome.Contains(nome));''
+
+            if(_professores == null) return BadRequest("Não há nenhum aluno com o nome informado");
+            return Ok(_professores);
+        }
 
         [HttpPost]
         public IActionResult Post(Professor professor)
