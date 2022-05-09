@@ -39,7 +39,7 @@ namespace SmartSchool.WebApi.Controllers
         [HttpGet("ByName")]
         public IActionResult GetByName(string nome)
         {
-            var _professores = _smartContext.Professores.Where(p => p.Nome.Contains(nome));''
+            var _professores = _smartContext.Professores.Where(p => p.Nome.Contains(nome));
 
             if(_professores == null) return BadRequest("Não há nenhum aluno com o nome informado");
             return Ok(_professores);
