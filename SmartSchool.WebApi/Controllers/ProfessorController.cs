@@ -28,5 +28,22 @@ namespace SmartSchool.WebApi.Controllers
         }
 
         
+
+        [HttpPost]
+        public IActionResult Post(Professor professor)
+        {
+            var professorExist = _smartContext.Professores.FirstOrDefault(p => p.Id == professor.Id);
+
+            if(professorExist == null)
+            {
+                _smartContext.Add(professorExist);
+            }
+            else
+            {
+                pro
+                _smartContext.Update(professorExist);
+            }
+            return Ok
+        }
     }
 }
