@@ -32,18 +32,31 @@ namespace SmartSchool.WebApi.Controllers
         [HttpPost]
         public IActionResult Post(Professor professor)
         {
-            var professorExist = _smartContext.Professores.FirstOrDefault(p => p.Id == professor.Id);
+            var _professor = _smartContext.Professores.FirstOrDefault(p => p.Id == professor.Id);
 
-            if(professorExist == null)
+            if(_professor == null)
             {
-                _smartContext.Add(professorExist);
+                _smartContext.Add(_professor);
             }
             else
             {
-                pro
-                _smartContext.Update(professorExist);
+                _professor.Nome = professor.Nome;                
+                _smartContext.Update(_professor);
             }
-            return Ok
+
+            return Ok("Alterações concluídas com sucesso!");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Professor professor)
+        {
+            var _professor = _smartContext.Professores.FirstOrDefault(p => p.Id == professor.Id);
+
+            if(_professor == null) return BadRequest("Registro não encontrado");
+            
+            _smartContext.Add(_professor);            
+
+            return Ok("Registro excluído com sucesso");
         }
     }
 }
