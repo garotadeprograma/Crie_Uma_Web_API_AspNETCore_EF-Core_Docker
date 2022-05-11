@@ -12,11 +12,11 @@ namespace SmartSchool.WebApi.Controllers
     [Route("api/[controller]")]
     public class AlunoController : ControllerBase
     {
-        public readonly Repository _repo;
+        public readonly IRepository _repo;
         private readonly SmartContext _smartContext;
 
         public AlunoController(SmartContext smartContext,
-                                Repository repo)
+                                IRepository repo)
         {
             _repo = repo;
             _smartContext = smartContext;
@@ -53,16 +53,18 @@ namespace SmartSchool.WebApi.Controllers
 
             if(_aluno == null) 
             {
-                _smartContext.Add(aluno);
+                _repo.Add(aluno);
             }
             else
             {
                 _aluno.Telefone = aluno.Telefone;
-                _smartContext.Update(_aluno);
+                _repo.Update(_aluno);
             }
 
-            _smartContext.SaveChanges();
-            return Ok("Alteração concluída com sucesso!");
+            if(_repo.SaveChanges())
+                return Ok("Alteração concluída com sucesso!");
+
+            return BadRequest("Alteração não foi concluída");
         }
 
         [HttpPost("delete")]
@@ -71,9 +73,12 @@ namespace SmartSchool.WebApi.Controllers
             var _aluno = _smartContext.Alunos.FirstOrDefault(a => a.Id == aluno.Id);
             if(_aluno == null) return BadRequest("Aluno não encontrado");
 
-            _smartContext.Remove(_aluno);
-            _smartContext.SaveChanges();
-            return Ok(_smartContext.Alunos);
+            _repo.Delete(_aluno);
+            
+            if(_repo.SaveChanges())
+                return Ok("Registro deletado com sucesso!");
+
+            return BadRequest("Alteração não foi concluída");
         }
     }
 }
