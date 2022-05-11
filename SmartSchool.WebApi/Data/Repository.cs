@@ -28,10 +28,10 @@ namespace SmartSchool.WebApi.Data
         {
             _context.Update(entity);
         }
-        
+
         public bool SaveChanges()
         {
-            throw new NotImplementedException();
+            return (_context.SaveChanges() > 0);
         }        
     }
 }
