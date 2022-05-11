@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SmartSchool.WebApi.Models;
 
 namespace SmartSchool.WebApi.Data
@@ -35,34 +36,104 @@ namespace SmartSchool.WebApi.Data
             return (_context.SaveChanges() > 0);
         }
 
-        public Aluno[] GetAlunos()
+        public Aluno[] GetAlunos(bool incluirProfessor = false)
         {
-            throw new NotImplementedException();
+            IQueryable<Aluno> query = _context.Alunos;
+
+            if(incluirProfessor)
+            {
+                query = query.Include(a => a.AlunosDisciplinas)
+                                .ThenInclude(ad => ad.Disciplina)
+                                .ThenInclude(d => d.Professor);
+            }
+
+            query = query.AsNoTracking().OrderBy(a => a.Id);
+
+            return query.ToArray();
         }
 
-        public Aluno[] GetAlunoByName()
+        public Aluno[] GetAlunoByName(string alunoName, bool incluirProfessor = false)
         {
-            throw new NotImplementedException();
+            IQueryable<Aluno> query = _context.Alunos;
+
+            if(incluirProfessor)
+            {
+                query = query.Include(a => a.AlunosDisciplinas)
+                                .ThenInclude(ad => ad.Disciplina)
+                                .ThenInclude(d => d.Professor);
+            }
+
+            query = query.AsNoTracking()
+                            .OrderBy(a => a.Id)
+                            .Where(aluno => aluno.Nome == alunoName || aluno.SobreNome == alunoName); 
+
+            return query.ToArray();
         }
 
-        public Aluno GetAlunoById()
+        public Aluno GetAlunoById(int alunoId, bool incluirProfessor = false)
         {
-            throw new NotImplementedException();
+            IQueryable<Aluno> query = _context.Alunos;
+
+            if(incluirProfessor)
+            {
+                query = query.Include(a => a.AlunosDisciplinas)
+                                .ThenInclude(ad => ad.Disciplina)
+                                .ThenInclude(d => d.Professor);
+            }
+
+            query = query.AsNoTracking()
+                            .OrderBy(a => a.Id)
+                            .Where(aluno => aluno.Id == alunoId); 
+
+            return query.FirstOrDefault();
         }
 
-        public Professor[] GetProfessores()
+        public Professor[] GetProfessores(bool incluirAluno = false)
         {
-            throw new NotImplementedException();
+            IQueryable<Professor> query = _context.Professores;
+
+            if(incluirAluno)
+            {
+                query = query.Include(p => p.Disciplinas)
+                                .ThenInclude(d => d.AlunosDisciplinas)
+                                .ThenInclude(ad => ad.Aluno);
+            }
+
+            query = query.AsNoTracking().OrderBy(p => p.Id);
+
+            return query.ToArray();
         }
 
-        public Professor[] GetProfessoresByName()
+        public Professor[] GetProfessoresByName(string professorName, bool incluirAluno = false)
         {
-            throw new NotImplementedException();
+            IQueryable<Professor> query = _context.Professores;
+
+            if(incluirAluno)
+            {
+                query = query.Include(p => p.Disciplinas)
+                                .ThenInclude(d => d.AlunosDisciplinas)
+                                .ThenInclude(ad => ad.Aluno);
+            }
+
+            query = query.AsNoTracking().OrderBy(p => p.Id);
+
+            return query.ToArray();
         }
 
-        public Professor GetProfessorById()
+        public Professor GetProfessorById(int professorId, bool incluirAluno = false)
         {
-            throw new NotImplementedException();
+            IQueryable<Professor> query = _context.Professores;
+
+            if(incluirAluno)
+            {
+                query = query.Include(p => p.Disciplinas)
+                                .ThenInclude(d => d.AlunosDisciplinas)
+                                .ThenInclude(ad => ad.Aluno);
+            }
+
+            query = query.AsNoTracking().OrderBy(p => p.Id);
+
+            return query.FirstOrDefault();
         }
     }
 }

@@ -16,16 +16,16 @@ namespace SmartSchool.WebApi.Data
 
         bool SaveChanges();
 
-        Aluno[] GetAlunos();
+        Aluno[] GetAlunos(bool incluirProfessor);
 
-        Aluno[] GetAlunoByName();
+        Aluno[] GetAlunoByName(string alunoName, bool incluirProfessor = false);
 
-        Aluno GetAlunoById();
+        Aluno GetAlunoById(int alunoId, bool incluirProfessor = false);
         
-        Professor[] GetProfessores();
+        Professor[] GetProfessores(bool incluirAluno);
 
-        Professor[] GetProfessoresByName();
+        Professor[] GetProfessoresByName(string professorName, bool incluirAluno = false);
 
-        Professor GetProfessorById();
+        Professor GetProfessorById(int professorId, bool incluirAluno = false);
     }
 }
