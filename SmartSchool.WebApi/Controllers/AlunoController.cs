@@ -12,10 +12,13 @@ namespace SmartSchool.WebApi.Controllers
     [Route("api/[controller]")]
     public class AlunoController : ControllerBase
     {
-
+        public readonly Repository _repo;
         private readonly SmartContext _smartContext;
-        public AlunoController(SmartContext smartContext)
+
+        public AlunoController(SmartContext smartContext,
+                                Repository repo)
         {
+            _repo = repo;
             _smartContext = smartContext;
         }
 

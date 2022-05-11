@@ -7,24 +7,31 @@ namespace SmartSchool.WebApi.Data
 {
     public class Repository : IRepository
     {
+        public readonly SmartContext _context;
+        
+        public Repository(SmartContext context)
+        {
+            _context = context;            
+        }
+        
         public void Add<T>(T entity) where T : class
         {
-            throw new NotImplementedException();
+            _context.Add(entity);
         }
-
+        
         public void Delete<T>(T entity) where T : class
         {
-            throw new NotImplementedException();
-        }
-
-        public bool SaveChanges()
-        {
-            throw new NotImplementedException();
+            _context.Remove(entity);
         }
 
         public void Update<T>(T entity) where T : class
         {
-            throw new NotImplementedException();
+            _context.Update(entity);
         }
+        
+        public bool SaveChanges()
+        {
+            throw new NotImplementedException();
+        }        
     }
 }
